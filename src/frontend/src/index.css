@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark navy background #071824 */
+    --background: 0.12 0.03 222;
+    --foreground: 0.96 0.01 222;
+    /* Card #0E2B3B */
+    --card: 0.17 0.04 222;
+    --card-foreground: 0.96 0.01 222;
+    --popover: 0.17 0.04 222;
+    --popover-foreground: 0.96 0.01 222;
+    /* Orange primary #F08A2B */
+    --primary: 0.72 0.17 55;
+    --primary-foreground: 0.12 0.03 222;
+    /* Secondary muted */
+    --secondary: 0.22 0.04 222;
+    --secondary-foreground: 0.78 0.03 222;
+    --muted: 0.2 0.04 222;
+    --muted-foreground: 0.67 0.03 222;
+    /* Green accent #2BBE60 */
+    --accent: 0.68 0.2 145;
+    --accent-foreground: 0.12 0.03 222;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    /* Border #173A4A */
+    --border: 0.22 0.04 222;
+    --input: 0.22 0.04 222;
+    --ring: 0.72 0.17 55;
+    --chart-1: 0.72 0.17 55;
+    --chart-2: 0.68 0.2 145;
+    --chart-3: 0.55 0.13 222;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.15 0.04 222;
+    --sidebar-foreground: 0.96 0.01 222;
+    --sidebar-primary: 0.72 0.17 55;
+    --sidebar-primary-foreground: 0.12 0.03 222;
+    --sidebar-accent: 0.2 0.04 222;
+    --sidebar-accent-foreground: 0.78 0.03 222;
+    --sidebar-border: 0.22 0.04 222;
+    --sidebar-ring: 0.72 0.17 55;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-orange {
+    background: linear-gradient(135deg, #e57a2e 0%, #f08a2b 100%);
+  }
+
+  .gradient-hero {
+    background: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      oklch(0.28 0.12 222) 0%,
+      oklch(0.12 0.03 222) 70%
+    );
+  }
+
+  .gradient-glow-orange {
+    background: radial-gradient(
+      ellipse 60% 40% at 50% 100%,
+      rgba(240, 138, 43, 0.18) 0%,
+      transparent 70%
+    );
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+  }
+
+  .text-orange {
+    color: #f08a2b;
+  }
+
+  .text-muted-blue {
+    color: #b7c6d1;
+  }
+
+  .card-dark {
+    background-color: #0e2b3b;
+    border-color: #173a4a;
+  }
+
+  /* Orange glow button */
+  .btn-orange {
+    background: linear-gradient(135deg, #e57a2e 0%, #f08a2b 100%);
+    color: #fff;
+    font-weight: 700;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .btn-orange:hover {
+    box-shadow: 0 6px 28px rgba(240, 138, 43, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Green WhatsApp button */
+  .btn-whatsapp {
+    background-color: #2bbe60;
+    color: #fff;
+    font-weight: 700;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .btn-whatsapp:hover {
+    box-shadow: 0 6px 28px rgba(43, 190, 96, 0.45);
+    transform: translateY(-2px);
+  }
+
+  /* WhatsApp pulse ring */
+  @keyframes wa-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(43, 190, 96, 0.65);
+    }
+    70% {
+      box-shadow: 0 0 0 16px rgba(43, 190, 96, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(43, 190, 96, 0);
+    }
+  }
+  .wa-pulse {
+    animation: wa-pulse 2s ease-out infinite;
+  }
+
+  @keyframes orange-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(240, 138, 43, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 12px rgba(240, 138, 43, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(240, 138, 43, 0);
+    }
+  }
+  .orange-pulse {
+    animation: orange-pulse 2s ease-out infinite;
+  }
+
+  /* Card hover lift */
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  }
+}
